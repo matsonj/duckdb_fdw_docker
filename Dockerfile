@@ -9,8 +9,8 @@ RUN apt-get install -y postgresql-server-dev-15 postgresql-client-15 wget unzip
 
 RUN git clone -b makefile_version https://github.com/wearpants/duckdb_fdw.git  \
    && cd duckdb_fdw \
-   && wget -c https://github.com/duckdb/duckdb/releases/latest/download/libduckdb-linux-aarch64.zip \
-   && unzip -d . libduckdb-linux-aarch64.zip \
+   && wget -c https://github.com/duckdb/duckdb/releases/latest/download/libduckdb-linux-amd64.zip \
+   && unzip -d . libduckdb-linux-amd64.zip \
    && cp libduckdb.so $(pg_config --libdir)  \
    && make USE_PGXS=1 \
    && make install USE_PGXS=1
